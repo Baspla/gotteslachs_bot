@@ -11,9 +11,6 @@ def main():
                         level=logging.DEBUG)
     bot = SignalBot()
 
-    @bot.Message(regex="^/ping$")
-    def ping(source_information, data_message, context, message):
-        bot.sender.sendText(context, "Pong!")
     registerPingHandler(bot)
     registerTranslateHandler(bot)
     registerTestHandler(bot)
