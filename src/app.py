@@ -1,4 +1,6 @@
 import logging
+import os
+
 from simple_signal_bot.signal_bot import SignalBot
 
 from handler.help import registerHelpHandler
@@ -9,7 +11,7 @@ from handler.translate import registerTranslateHandler
 
 def main():
     logging.basicConfig(handlers=[logging.StreamHandler()],
-                        level=logging.DEBUG)
+                        level=os.environ.get('LOG_LEVEL', "INFO"))
     bot = SignalBot()
 
     registerHelpHandler(bot)
