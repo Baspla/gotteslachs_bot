@@ -1,8 +1,9 @@
 import logging
 from simple_signal_bot.signal_bot import SignalBot
 
-from handler.ping import registerPingHandler
-from handler.test import registerTestHandler
+from handler.help import registerHelpHandler
+from handler.version import registerVersionHandler
+from handler.stats import registerStatsHandler
 from handler.translate import registerTranslateHandler
 
 
@@ -11,9 +12,10 @@ def main():
                         level=logging.DEBUG)
     bot = SignalBot()
 
-    registerPingHandler(bot)
+    registerHelpHandler(bot)
     registerTranslateHandler(bot)
-    registerTestHandler(bot)
+    registerVersionHandler(bot)
+    registerStatsHandler(bot)
 
     bot.run()
 
